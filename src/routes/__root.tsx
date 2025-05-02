@@ -21,8 +21,11 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
+        title: 'DC Mechanical, LLC | Professional HVAC Services in Twin Cities',
+      },
+      {
         name: 'description',
-        content: 'DC Mechanical, LLC - Professional HVAC services in the Greater Twin Cities area. Expert installation, maintenance, and repair of heating and cooling systems with 10 years of experience. 24/7 emergency service available.',
+        content: 'DC Mechanical provides expert HVAC services in the Greater Twin Cities area. Specializing in furnace & AC replacements, garage heaters, mini splits, and more. 24/7 emergency service available.',
       },
       {
         name: 'keywords',
@@ -81,6 +84,32 @@ export const Route = createRootRoute({
       {
         rel: 'canonical',
         href: 'https://www.dcmechanicalmn.com',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/images/brand/favicon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '16x16',
+        href: '/images/brand/favicon-16x16.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '32x32',
+        href: '/images/brand/favicon-32x32.png',
+      },
+      {
+        rel: 'apple-touch-icon',
+        sizes: '180x180',
+        href: '/images/brand/apple-touch-icon.png',
+      },
+      {
+        rel: 'manifest',
+        href: '/site.webmanifest',
       },
     ],
     script: [

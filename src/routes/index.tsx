@@ -1,16 +1,43 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { Footer } from '../components/Footer'
 
+const services = {
+  'furnace-ac-replacement': {
+    title: 'Complete Furnace & Air Conditioner Replacements',
+    description: 'Professional installation of high-efficiency furnaces and air conditioners for optimal home comfort.',
+    image: '/images/services/furnace-hvac.jpg',
+    details: [
+      'Expert installation of new high-efficiency furnaces',
+      'Professional AC unit replacement',
+      'Complete system testing and optimization',
+      'Energy efficiency consultation',
+      'Warranty registration assistance',
+    ],
+  },
+  'garage-heater': {
+    title: 'Garage Heater Installation',
+    description: 'Expert installation of garage heating systems to keep your workspace comfortable year-round.',
+    image: '/images/services/garage-header.jpg',
+    details: [
+      'Custom heating solutions for any garage size',
+      'Professional installation of unit heaters',
+      'Proper ventilation and safety measures',
+      'Energy-efficient options available',
+      'Maintenance and service plans',
+    ],
+  },
+}
+
 export const Route = createFileRoute('/')({
   component: Home,
 })
 
 function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-gradient-to-br from-orange-200 via-orange-100 to-blue-200">
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}
-        <section className="text-center mb-16 rounded-xl p-8 bg-gradient-to-br from-orange-50 to-blue-50" aria-label="Company introduction">
+        <section className="text-center mb-16 rounded-2xl p-8 bg-white/30 backdrop-blur-md shadow-lg border border-white/20" aria-label="Company introduction">
           <div className="max-w-xs mx-auto mb-8">
             <img 
               src="/images/brand/Logo.jpg" 
@@ -28,163 +55,102 @@ function Home() {
         </section>
 
         {/* About Section */}
-        <section className="mb-16 rounded-xl p-8 bg-gradient-to-tr from-blue-50 to-orange-50" aria-label="About our company">
+        <section className="mb-16 rounded-2xl p-8 bg-white/30 backdrop-blur-md shadow-lg border border-white/20" aria-label="About our company">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">About Us</h2>
           <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold mb-4 text-gray-800">20 Years experience</h3>
-            <p className="text-gray-700">
-              Although DC Mechanical was founded in 2021, we have over 20 years of experience in the HVAC trade. 
-              We are fully licensed, bonded & insured. From new construction, furnace & AC replacements, ductwork, 
-              & service, here at DC Mechanical we have the experience necessary for all your HVAC needs. For us 
-              there is no job to big or to small, give us a call today for a free estimate!
+            <h3 className="text-2xl font-semibold mb-4 text-gray-800">22 Years of Experience</h3>
+            <p className="text-gray-700 mb-4">
+              Founded in 2021, DC Mechanical brings over 20 years of hands-on experience in the HVAC industry to every project. 
+              We are a fully licensed, bonded, and insured HVAC company proudly serving residential and commercial clients across 
+              the Twin Cities metro area.
             </p>
+            <p className="text-gray-700 mb-4">
+              Whether you need new construction HVAC installation, high-efficiency furnace or AC replacement, custom ductwork, 
+              or fast, reliable HVAC repair services, our skilled technicians have the training and expertise to get the job done right.
+            </p>
+            <p className="text-gray-700 mb-6">
+              No job is too big or too small. From start to finish, we're committed to providing dependable, honest service and 
+              long-lasting results.
+            </p>
+            <div className="text-center">
+              <a
+                href="mailto:dcmechanicalmn@gmail.com"
+                className="inline-block bg-gradient-to-r from-orange-500 to-blue-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-orange-600 hover:to-blue-600 transition-colors"
+                aria-label="Request a free estimate"
+              >
+                Request a Free Estimate
+              </a>
+            </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="mb-16 rounded-xl p-8 bg-gradient-to-br from-orange-50 to-blue-50" aria-label="Our services">
-          <h2 className="text-3xl font-bold mb-6 text-gray-800">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'furnace-ac-replacement' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/furnace-hvac.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Complete Furnace & Air Conditioner Replacements</h3>
-                <p className="text-gray-200">Professional installation of high-efficiency furnaces and air conditioners for optimal home comfort.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'garage-heater' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/garage-header.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Garage Heater Installation</h3>
-                <p className="text-gray-200">Expert installation of garage heating systems to keep your workspace comfortable year-round.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'mini-split' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/ductless-minisplit.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Mini Split AC & Heat Pump Systems</h3>
-                <p className="text-gray-200">Energy-efficient mini-split systems for targeted heating and cooling in any space.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'gas-fireplace' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/gas-fireplace.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Gas Fireplace Installation</h3>
-                <p className="text-gray-200">Professional installation of gas fireplaces for cozy, efficient home heating.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'humidifiers' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/humidifier.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Humidifiers</h3>
-                <p className="text-gray-200">Installation of whole-home humidification systems for improved indoor air quality.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'vent-installation' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/vent.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Vent Installation</h3>
-                <p className="text-gray-200">Expert installation of bathroom exhaust fans and range vents for proper ventilation.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'erv-hrv' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/hrv.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">ERV & HRV Air Handler Installations</h3>
-                <p className="text-gray-200">Energy recovery and heat recovery ventilation systems for fresh, efficient air circulation.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'air-purification' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/air-purifier.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Filter Systems & Air Purification</h3>
-                <p className="text-gray-200">Advanced air filtration and purification systems for cleaner, healthier indoor air.</p>
-              </div>
-            </Link>
-            <Link
-              to="/services/$serviceId"
-              params={{ serviceId: 'ductwork' }}
-              className="group relative block h-64 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
-            >
-              <div 
-                className="absolute inset-0 bg-[url('/images/services/ductwork.jpg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-300"
-                aria-hidden="true"
-              />
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors" />
-              <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                <h3 className="text-xl font-semibold mb-2">Ductwork Installation</h3>
-                <p className="text-gray-200">Professional ductwork design and installation for new construction and remodels.</p>
-              </div>
-            </Link>
+        <section className="py-16 bg-gradient-to-b from-orange-200 via-orange-100 to-blue-200">
+          <div className="container mx-auto px-4">
+            <h2 className="text-4xl font-bold text-center mb-12">Our Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {Object.entries(services).map(([id, service]) => (
+                <Link
+                  key={id}
+                  to="/services/$serviceId"
+                  params={{ serviceId: id }}
+                  className="block group"
+                >
+                  <div className="bg-white/30 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div className="aspect-w-16 aspect-h-9 mb-4 rounded-lg overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600">{service.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "itemListElement": Object.entries(services).map(([id, service], index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "Service",
+                  "name": service.title,
+                  "description": service.details.join(" "),
+                  "url": `https://www.dcmechanicalmn.com/services/${id}`,
+                  "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "DC Mechanical, LLC",
+                    "description": "Professional HVAC services in the Twin Cities area",
+                    "areaServed": "Twin Cities, Minnesota",
+                    "hasOfferCatalog": {
+                      "@type": "OfferCatalog",
+                      "name": "HVAC Services",
+                      "itemListElement": Object.entries(services).map(([id, service]) => ({
+                        "@type": "Offer",
+                        "itemOffered": {
+                          "@type": "Service",
+                          "name": service.title,
+                          "description": service.description
+                        }
+                      }))
+                    }
+                  }
+                }
+              }))
+            })}
+          </script>
         </section>
 
         {/* Testimonials Section */}
-        <section className="mb-16 rounded-xl p-8 bg-gradient-to-tr from-blue-50 to-orange-50" aria-label="Customer testimonials">
+        <section className="mb-16 rounded-2xl p-8 bg-white/30 backdrop-blur-md shadow-lg border border-white/20" aria-label="Customer testimonials">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">What Our Customers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
@@ -324,7 +290,7 @@ function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="mb-16 rounded-xl p-8 bg-gradient-to-br from-orange-50 to-blue-50" aria-label="Contact information">
+        <section className="mb-16 rounded-2xl p-8 bg-white/30 backdrop-blur-md shadow-lg border border-white/20" aria-label="Contact information">
           <h2 className="text-3xl font-bold mb-6 text-gray-800">Contact Us</h2>
           <div className="bg-white/80 backdrop-blur-sm p-6 rounded-lg shadow-md">
             <p className="text-gray-700 mb-4">
@@ -340,7 +306,7 @@ function Home() {
         <div className="text-center">
           <a
             href="mailto:dcmechanicalmn@gmail.com"
-            className="inline-block bg-gradient-to-r from-orange-500 to-blue-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-orange-600 hover:to-blue-600 transition-colors"
+            className="inline-block bg-gradient-to-r from-orange-500 to-blue-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:from-orange-600 hover:to-blue-600 transition-colors shadow-lg hover:shadow-xl"
             aria-label="Book a consultation via email"
           >
             Book a Consultation
@@ -348,6 +314,6 @@ function Home() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

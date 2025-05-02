@@ -1,0 +1,26 @@
+{
+  "name": "DC Mechanical, LLC",
+  "short_name": "DC Mechanical",
+  "description": "Professional HVAC services in the Greater Twin Cities area",
+  "icons": [
+    {
+      "src": "/images/brand/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/brand/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/brand/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#f97316",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+} 

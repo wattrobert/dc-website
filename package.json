@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vinxi dev --host",
     "start": "vinxi start",
-    "build": "vinxi build",
+    "build": "vinxi build --static",
     "serve": "vite preview",
     "test": "vitest run",
     "lint": "eslint",

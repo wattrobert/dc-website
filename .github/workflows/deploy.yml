@@ -34,12 +34,12 @@ jobs:
         run: npm run build
 
       - name: Copy index.html to 404.html for SPA routing
-        run: cp .vinxi/static/index.html .vinxi/static/404.html
+        run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .vinxi/static
+          path: dist
 
   deploy:
     environment:

@@ -3,7 +3,7 @@ import { StartClient } from '@tanstack/react-start'
 import { createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, basepath: '/dc-website' })
 
 declare module '@tanstack/react-router' {
   interface Register {

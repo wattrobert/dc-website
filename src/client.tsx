@@ -3,7 +3,8 @@ import { StartClient } from '@tanstack/react-start'
 import { createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
-const router = createRouter({ routeTree, basepath: '/dc-website' })
+const isProd = import.meta.env.PROD;
+const router = createRouter({ routeTree, basepath: isProd ? '/dc-website' : '/' })
 
 declare module '@tanstack/react-router' {
   interface Register {

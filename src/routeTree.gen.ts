@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as BookConsultationImport } from './routes/book-consultation'
 import { Route as IndexImport } from './routes/index'
 import { Route as ExampleChatImport } from './routes/example.chat'
 import { Route as DemoStoreImport } from './routes/demo.store'
@@ -20,6 +21,12 @@ import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
 
 // Create/Update Routes
+
+const BookConsultationRoute = BookConsultationImport.update({
+  id: '/book-consultation',
+  path: '/book-consultation',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
@@ -74,6 +81,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/book-consultation': {
+      id: '/book-consultation'
+      path: '/book-consultation'
+      fullPath: '/book-consultation'
+      preLoaderRoute: typeof BookConsultationImport
+      parentRoute: typeof rootRoute
+    }
     '/demo/store': {
       id: '/demo/store'
       path: '/demo/store'
@@ -123,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -133,6 +148,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -144,6 +160,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
@@ -156,6 +173,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
     | '/demo/start/api-request'
@@ -165,6 +183,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
     | '/demo/start/api-request'
@@ -174,6 +193,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
     | '/demo/start/api-request'
@@ -185,6 +205,7 @@ export interface FileRouteTypes {
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BookConsultationRoute: typeof BookConsultationRoute
   DemoStoreRoute: typeof DemoStoreRoute
   ExampleChatRoute: typeof ExampleChatRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
@@ -195,6 +216,7 @@ export interface RootRouteChildren {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BookConsultationRoute: BookConsultationRoute,
   DemoStoreRoute: DemoStoreRoute,
   ExampleChatRoute: ExampleChatRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
@@ -214,6 +236,7 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/book-consultation",
         "/demo/store",
         "/example/chat",
         "/demo/start/api-request",
@@ -224,6 +247,9 @@ export const routeTree = rootRoute
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/book-consultation": {
+      "filePath": "book-consultation.tsx"
     },
     "/demo/store": {
       "filePath": "demo.store.tsx"

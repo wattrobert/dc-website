@@ -11,6 +11,7 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as WarrantyImport } from './routes/warranty'
 import { Route as BookConsultationImport } from './routes/book-consultation'
 import { Route as IndexImport } from './routes/index'
 import { Route as ServicesIndexImport } from './routes/services/index'
@@ -23,6 +24,12 @@ import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-
 import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
 
 // Create/Update Routes
+
+const WarrantyRoute = WarrantyImport.update({
+  id: '/warranty',
+  path: '/warranty',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const BookConsultationRoute = BookConsultationImport.update({
   id: '/book-consultation',
@@ -102,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BookConsultationImport
       parentRoute: typeof rootRoute
     }
+    '/warranty': {
+      id: '/warranty'
+      path: '/warranty'
+      fullPath: '/warranty'
+      preLoaderRoute: typeof WarrantyImport
+      parentRoute: typeof rootRoute
+    }
     '/demo/store': {
       id: '/demo/store'
       path: '/demo/store'
@@ -166,6 +180,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/book-consultation': typeof BookConsultationRoute
+  '/warranty': typeof WarrantyRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
@@ -179,6 +194,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/book-consultation': typeof BookConsultationRoute
+  '/warranty': typeof WarrantyRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
@@ -193,6 +209,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/book-consultation': typeof BookConsultationRoute
+  '/warranty': typeof WarrantyRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
@@ -208,6 +225,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/book-consultation'
+    | '/warranty'
     | '/demo/store'
     | '/example/chat'
     | '/services/$serviceId'
@@ -220,6 +238,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/book-consultation'
+    | '/warranty'
     | '/demo/store'
     | '/example/chat'
     | '/services/$serviceId'
@@ -232,6 +251,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/book-consultation'
+    | '/warranty'
     | '/demo/store'
     | '/example/chat'
     | '/services/$serviceId'
@@ -246,6 +266,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BookConsultationRoute: typeof BookConsultationRoute
+  WarrantyRoute: typeof WarrantyRoute
   DemoStoreRoute: typeof DemoStoreRoute
   ExampleChatRoute: typeof ExampleChatRoute
   ServicesServiceIdRoute: typeof ServicesServiceIdRoute
@@ -259,6 +280,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BookConsultationRoute: BookConsultationRoute,
+  WarrantyRoute: WarrantyRoute,
   DemoStoreRoute: DemoStoreRoute,
   ExampleChatRoute: ExampleChatRoute,
   ServicesServiceIdRoute: ServicesServiceIdRoute,
@@ -281,6 +303,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/book-consultation",
+        "/warranty",
         "/demo/store",
         "/example/chat",
         "/services/$serviceId",
@@ -296,6 +319,9 @@ export const routeTree = rootRoute
     },
     "/book-consultation": {
       "filePath": "book-consultation.tsx"
+    },
+    "/warranty": {
+      "filePath": "warranty.tsx"
     },
     "/demo/store": {
       "filePath": "demo.store.tsx"

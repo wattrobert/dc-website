@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { Footer } from '../../components/Footer'
 
 export const Route = createFileRoute('/services/$serviceId')({
   component: ServiceDetail,
@@ -11,6 +12,7 @@ function ServiceDetail() {
     'furnace-ac-replacement': {
       title: 'Complete Furnace & Air Conditioner Replacements',
       description: 'Professional installation of high-efficiency furnaces and air conditioners for optimal home comfort.',
+      image: '/images/services/furnace-hvac.jpg',
       details: [
         'Expert installation of new high-efficiency furnaces',
         'Professional AC unit replacement',
@@ -29,6 +31,7 @@ function ServiceDetail() {
     'garage-heater': {
       title: 'Garage Heater Installation',
       description: 'Expert installation of garage heating systems to keep your workspace comfortable year-round.',
+      image: '/images/services/garage-header.jpg',
       details: [
         'Custom heating solutions for any garage size',
         'Professional installation of unit heaters',
@@ -47,6 +50,7 @@ function ServiceDetail() {
     'mini-split': {
       title: 'Mini Split AC & Heat Pump Systems',
       description: 'Energy-efficient mini-split systems for targeted heating and cooling in any space.',
+      image: '/images/services/ductless-minisplit.jpg',
       details: [
         'Single and multi-zone systems',
         'Professional installation and setup',
@@ -65,6 +69,7 @@ function ServiceDetail() {
     'gas-fireplace': {
       title: 'Gas Fireplace Installation',
       description: 'Professional installation of gas fireplaces for cozy, efficient home heating.',
+      image: '/images/services/gas-fireplace.jpg',
       details: [
         'Expert gas line installation',
         'Professional venting solutions',
@@ -83,6 +88,7 @@ function ServiceDetail() {
     'humidifiers': {
       title: 'Humidifiers',
       description: 'Installation of whole-home humidification systems for improved indoor air quality.',
+      image: '/images/services/humidifier.jpg',
       details: [
         'Whole-home humidification systems',
         'Professional installation and setup',
@@ -101,6 +107,7 @@ function ServiceDetail() {
     'vent-installation': {
       title: 'Vent Installation',
       description: 'Expert installation of bathroom exhaust fans and range vents for proper ventilation.',
+      image: '/images/services/vent.jpg',
       details: [
         'Bathroom exhaust fan installation',
         'Range hood venting solutions',
@@ -119,6 +126,7 @@ function ServiceDetail() {
     'erv-hrv': {
       title: 'ERV & HRV Air Handler Installations',
       description: 'Energy recovery and heat recovery ventilation systems for fresh, efficient air circulation.',
+      image: '/images/services/hrv.jpg',
       details: [
         'Energy recovery ventilation systems',
         'Heat recovery ventilation systems',
@@ -137,6 +145,7 @@ function ServiceDetail() {
     'air-purification': {
       title: 'Filter Systems & Air Purification',
       description: 'Advanced air filtration and purification systems for cleaner, healthier indoor air.',
+      image: '/images/services/air-purifier.jpg',
       details: [
         'Whole-home air purification',
         'UV light installation',
@@ -155,6 +164,7 @@ function ServiceDetail() {
     'ductwork': {
       title: 'Ductwork Installation',
       description: 'Professional ductwork design and installation for new construction and remodels.',
+      image: '/images/services/ductwork.jpg',
       details: [
         'Custom ductwork design',
         'Professional installation',
@@ -184,44 +194,63 @@ function ServiceDetail() {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-4">{service.title}</h1>
-      <p className="text-xl text-gray-600 mb-8">{service.description}</p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Service Details</h2>
-          <ul className="space-y-2">
-            {service.details.map((detail, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
-                {detail}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Benefits</h2>
-          <ul className="space-y-2">
-            {service.benefits.map((benefit, index) => (
-              <li key={index} className="flex items-start">
-                <span className="text-blue-600 mr-2">•</span>
-                {benefit}
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
-
-      <div className="mt-12 text-center">
-        <a
-          href="mailto:dcmechanicalmn@gmail.com"
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+    <>
+      <main>
+        {/* Hero Section */}
+        <section 
+          className="relative h-screen flex items-center justify-center"
+          style={{
+            backgroundImage: `url('${service.image}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
         >
-          Request a Quote
-        </a>
-      </div>
-    </main>
+          <div className="absolute inset-0 bg-black/50" />
+          <div className="relative text-center text-white px-4">
+            <h1 className="text-5xl font-bold mb-4">{service.title}</h1>
+            <p className="text-xl max-w-2xl mx-auto">{service.description}</p>
+          </div>
+        </section>
+
+        {/* Content Section */}
+        <section className="container mx-auto px-4 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Service Details</h2>
+              <ul className="space-y-2">
+                {service.details.map((detail, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    {detail}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Benefits</h2>
+              <ul className="space-y-2">
+                {service.benefits.map((benefit, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-blue-600 mr-2">•</span>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 text-center">
+            <a
+              href="mailto:dcmechanicalmn@gmail.com"
+              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+            >
+              Request a Quote
+            </a>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 } 

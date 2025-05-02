@@ -26,6 +26,90 @@ const services = {
       'Maintenance and service plans',
     ],
   },
+  'mini-split': {
+    title: 'Mini Split AC & Heat Pump Systems',
+    description: 'Energy-efficient mini-split systems for targeted heating and cooling in any space.',
+    image: '/images/services/ductless-minisplit.jpg',
+    details: [
+      'Single and multi-zone systems',
+      'Professional installation and setup',
+      'Energy-efficient heat pump technology',
+      'Quiet operation',
+      'Remote control and smart features',
+    ],
+  },
+  'gas-fireplace': {
+    title: 'Gas Fireplace Installation',
+    description: 'Professional installation of gas fireplaces for cozy, efficient home heating.',
+    image: '/images/services/gas-fireplace.jpg',
+    details: [
+      'Expert gas line installation',
+      'Professional venting solutions',
+      'Safety inspection and testing',
+      'Remote control setup',
+      'Maintenance recommendations',
+    ],
+  },
+  'humidifiers': {
+    title: 'Humidifiers',
+    description: 'Installation of whole-home humidification systems for improved indoor air quality.',
+    image: '/images/services/humidifier.jpg',
+    details: [
+      'Whole-home humidification systems',
+      'Professional installation and setup',
+      'Automatic humidity control',
+      'Regular maintenance service',
+      'Water quality solutions',
+    ],
+  },
+  'vent-installation': {
+    title: 'Vent Installation',
+    description: 'Expert installation of bathroom exhaust fans and range vents for proper ventilation.',
+    image: '/images/services/vent.jpg',
+    details: [
+      'Bathroom exhaust fan installation',
+      'Range hood venting solutions',
+      'Proper ductwork installation',
+      'Noise reduction options',
+      'Energy-efficient models',
+    ],
+  },
+  'erv-hrv': {
+    title: 'ERV & HRV Air Handler Installations',
+    description: 'Energy recovery and heat recovery ventilation systems for fresh, efficient air circulation.',
+    image: '/images/services/hrv.jpg',
+    details: [
+      'Energy recovery ventilation systems',
+      'Heat recovery ventilation systems',
+      'Professional installation and setup',
+      'Regular maintenance service',
+      'Energy efficiency optimization',
+    ],
+  },
+  'air-purification': {
+    title: 'Filter Systems & Air Purification',
+    description: 'Advanced air filtration and purification systems for cleaner, healthier indoor air.',
+    image: '/images/services/air-purifier.jpg',
+    details: [
+      'Whole-home air purification',
+      'UV light installation',
+      'Advanced filtration systems',
+      'Regular maintenance service',
+      'Air quality monitoring',
+    ],
+  },
+  'ductwork': {
+    title: 'Ductwork Installation',
+    description: 'Professional ductwork design and installation for new construction and remodels.',
+    image: '/images/services/ductwork.jpg',
+    details: [
+      'Custom ductwork design',
+      'Professional installation',
+      'Energy-efficient solutions',
+      'Airflow optimization',
+      'Regular maintenance service',
+    ],
+  },
 }
 
 export const Route = createFileRoute('/')({
@@ -40,11 +124,10 @@ function Home() {
         <section className="text-center mb-16 rounded-2xl p-8 bg-white/30 backdrop-blur-md shadow-lg border border-white/20" aria-label="Company introduction">
           <div className="max-w-xs mx-auto mb-8">
             <img 
-              src="/images/brand/Logo.jpg" 
+              src="/images/brand/Logo_NoBg.png" 
               alt="DC Mechanical Logo" 
-              className="w-full h-auto filter brightness-110 contrast-110 saturate-110"
+              className="w-full h-auto"
               style={{
-                mixBlendMode: 'multiply',
                 filter: 'brightness(1.1) contrast(1.1) saturate(1.1)',
                 backgroundColor: 'transparent'
               }}
@@ -96,18 +179,24 @@ function Home() {
                   params={{ serviceId: id }}
                   className="block group"
                 >
-                  <div className="bg-white/30 backdrop-blur-md rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="aspect-w-16 aspect-h-9 mb-4 rounded-lg overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover"
-                      />
+                  <div
+                    className="relative h-64 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-end"
+                  >
+                    <div 
+                      className="absolute inset-0 transition-all duration-300 group-hover:scale-105 group-hover:blur-sm"
+                      style={{ 
+                        backgroundImage: `url(${service.image})`, 
+                        backgroundSize: 'cover', 
+                        backgroundPosition: 'center'
+                      }} 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-opacity group-hover:from-black/80 group-hover:via-black/50" />
+                    <div className="relative z-10 p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-white drop-shadow-lg group-hover:text-blue-200 transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-white/90 drop-shadow-md">{service.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600">{service.description}</p>
                   </div>
                 </Link>
               ))}

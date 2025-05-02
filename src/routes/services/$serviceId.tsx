@@ -263,7 +263,7 @@ function ServiceDetail() {
       <main>
         {/* Hero Section */}
         <section 
-          className="relative h-screen flex items-center justify-center"
+          className="relative min-h-screen flex flex-col items-center justify-center"
           style={{
             backgroundImage: `url('${service.image}')`,
             backgroundSize: 'cover',
@@ -271,7 +271,22 @@ function ServiceDetail() {
           }}
         >
           <div className="absolute inset-0 bg-black/50" />
-          <div className="relative text-center text-white px-4">
+          
+          {/* Logo Container */}
+          <div className="relative z-10 w-full max-w-xs mx-auto mb-8">
+            <img 
+              src="/images/brand/Logo_NoBg.png" 
+              alt="DC Mechanical Logo" 
+              className="w-full h-auto"
+              style={{
+                filter: 'brightness(1.1) contrast(1.1) saturate(1.1)',
+                mixBlendMode: 'multiply',
+                backgroundColor: 'transparent'
+              }}
+            />
+          </div>
+
+          <div className="relative z-10 text-center text-white px-4">
             <h1 className="text-5xl font-bold mb-4">{service.title}</h1>
             <p className="text-xl max-w-2xl mx-auto">{service.description}</p>
           </div>

@@ -12,28 +12,15 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as WarrantyImport } from './routes/warranty'
-import { Route as BookConsultationImport } from './routes/book-consultation'
 import { Route as IndexImport } from './routes/index'
 import { Route as ServicesIndexImport } from './routes/services/index'
 import { Route as ServicesServiceIdImport } from './routes/services/$serviceId'
-import { Route as ExampleChatImport } from './routes/example.chat'
-import { Route as DemoStoreImport } from './routes/demo.store'
-import { Route as ExampleGuitarsIndexImport } from './routes/example.guitars/index'
-import { Route as ExampleGuitarsGuitarIdImport } from './routes/example.guitars/$guitarId'
-import { Route as DemoStartServerFuncsImport } from './routes/demo.start.server-funcs'
-import { Route as DemoStartApiRequestImport } from './routes/demo.start.api-request'
 
 // Create/Update Routes
 
 const WarrantyRoute = WarrantyImport.update({
   id: '/warranty',
   path: '/warranty',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const BookConsultationRoute = BookConsultationImport.update({
-  id: '/book-consultation',
-  path: '/book-consultation',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -55,42 +42,6 @@ const ServicesServiceIdRoute = ServicesServiceIdImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ExampleChatRoute = ExampleChatImport.update({
-  id: '/example/chat',
-  path: '/example/chat',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DemoStoreRoute = DemoStoreImport.update({
-  id: '/demo/store',
-  path: '/demo/store',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ExampleGuitarsIndexRoute = ExampleGuitarsIndexImport.update({
-  id: '/example/guitars/',
-  path: '/example/guitars/',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const ExampleGuitarsGuitarIdRoute = ExampleGuitarsGuitarIdImport.update({
-  id: '/example/guitars/$guitarId',
-  path: '/example/guitars/$guitarId',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DemoStartServerFuncsRoute = DemoStartServerFuncsImport.update({
-  id: '/demo/start/server-funcs',
-  path: '/demo/start/server-funcs',
-  getParentRoute: () => rootRoute,
-} as any)
-
-const DemoStartApiRequestRoute = DemoStartApiRequestImport.update({
-  id: '/demo/start/api-request',
-  path: '/demo/start/api-request',
-  getParentRoute: () => rootRoute,
-} as any)
-
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -102,32 +53,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/book-consultation': {
-      id: '/book-consultation'
-      path: '/book-consultation'
-      fullPath: '/book-consultation'
-      preLoaderRoute: typeof BookConsultationImport
-      parentRoute: typeof rootRoute
-    }
     '/warranty': {
       id: '/warranty'
       path: '/warranty'
       fullPath: '/warranty'
       preLoaderRoute: typeof WarrantyImport
-      parentRoute: typeof rootRoute
-    }
-    '/demo/store': {
-      id: '/demo/store'
-      path: '/demo/store'
-      fullPath: '/demo/store'
-      preLoaderRoute: typeof DemoStoreImport
-      parentRoute: typeof rootRoute
-    }
-    '/example/chat': {
-      id: '/example/chat'
-      path: '/example/chat'
-      fullPath: '/example/chat'
-      preLoaderRoute: typeof ExampleChatImport
       parentRoute: typeof rootRoute
     }
     '/services/$serviceId': {
@@ -144,34 +74,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexImport
       parentRoute: typeof rootRoute
     }
-    '/demo/start/api-request': {
-      id: '/demo/start/api-request'
-      path: '/demo/start/api-request'
-      fullPath: '/demo/start/api-request'
-      preLoaderRoute: typeof DemoStartApiRequestImport
-      parentRoute: typeof rootRoute
-    }
-    '/demo/start/server-funcs': {
-      id: '/demo/start/server-funcs'
-      path: '/demo/start/server-funcs'
-      fullPath: '/demo/start/server-funcs'
-      preLoaderRoute: typeof DemoStartServerFuncsImport
-      parentRoute: typeof rootRoute
-    }
-    '/example/guitars/$guitarId': {
-      id: '/example/guitars/$guitarId'
-      path: '/example/guitars/$guitarId'
-      fullPath: '/example/guitars/$guitarId'
-      preLoaderRoute: typeof ExampleGuitarsGuitarIdImport
-      parentRoute: typeof rootRoute
-    }
-    '/example/guitars/': {
-      id: '/example/guitars/'
-      path: '/example/guitars'
-      fullPath: '/example/guitars'
-      preLoaderRoute: typeof ExampleGuitarsIndexImport
-      parentRoute: typeof rootRoute
-    }
   }
 }
 
@@ -179,116 +81,47 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/book-consultation': typeof BookConsultationRoute
   '/warranty': typeof WarrantyRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services': typeof ServicesIndexRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/book-consultation': typeof BookConsultationRoute
   '/warranty': typeof WarrantyRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services': typeof ServicesIndexRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/book-consultation': typeof BookConsultationRoute
   '/warranty': typeof WarrantyRoute
-  '/demo/store': typeof DemoStoreRoute
-  '/example/chat': typeof ExampleChatRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/': typeof ServicesIndexRoute
-  '/demo/start/api-request': typeof DemoStartApiRequestRoute
-  '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
-  '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
-  '/example/guitars/': typeof ExampleGuitarsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/book-consultation'
-    | '/warranty'
-    | '/demo/store'
-    | '/example/chat'
-    | '/services/$serviceId'
-    | '/services'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars'
+  fullPaths: '/' | '/warranty' | '/services/$serviceId' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/book-consultation'
-    | '/warranty'
-    | '/demo/store'
-    | '/example/chat'
-    | '/services/$serviceId'
-    | '/services'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars'
-  id:
-    | '__root__'
-    | '/'
-    | '/book-consultation'
-    | '/warranty'
-    | '/demo/store'
-    | '/example/chat'
-    | '/services/$serviceId'
-    | '/services/'
-    | '/demo/start/api-request'
-    | '/demo/start/server-funcs'
-    | '/example/guitars/$guitarId'
-    | '/example/guitars/'
+  to: '/' | '/warranty' | '/services/$serviceId' | '/services'
+  id: '__root__' | '/' | '/warranty' | '/services/$serviceId' | '/services/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  BookConsultationRoute: typeof BookConsultationRoute
   WarrantyRoute: typeof WarrantyRoute
-  DemoStoreRoute: typeof DemoStoreRoute
-  ExampleChatRoute: typeof ExampleChatRoute
   ServicesServiceIdRoute: typeof ServicesServiceIdRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
-  DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
-  DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
-  ExampleGuitarsGuitarIdRoute: typeof ExampleGuitarsGuitarIdRoute
-  ExampleGuitarsIndexRoute: typeof ExampleGuitarsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  BookConsultationRoute: BookConsultationRoute,
   WarrantyRoute: WarrantyRoute,
-  DemoStoreRoute: DemoStoreRoute,
-  ExampleChatRoute: ExampleChatRoute,
   ServicesServiceIdRoute: ServicesServiceIdRoute,
   ServicesIndexRoute: ServicesIndexRoute,
-  DemoStartApiRequestRoute: DemoStartApiRequestRoute,
-  DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
-  ExampleGuitarsGuitarIdRoute: ExampleGuitarsGuitarIdRoute,
-  ExampleGuitarsIndexRoute: ExampleGuitarsIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -302,50 +135,22 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/book-consultation",
         "/warranty",
-        "/demo/store",
-        "/example/chat",
         "/services/$serviceId",
-        "/services/",
-        "/demo/start/api-request",
-        "/demo/start/server-funcs",
-        "/example/guitars/$guitarId",
-        "/example/guitars/"
+        "/services/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/book-consultation": {
-      "filePath": "book-consultation.tsx"
-    },
     "/warranty": {
       "filePath": "warranty.tsx"
-    },
-    "/demo/store": {
-      "filePath": "demo.store.tsx"
-    },
-    "/example/chat": {
-      "filePath": "example.chat.tsx"
     },
     "/services/$serviceId": {
       "filePath": "services/$serviceId.tsx"
     },
     "/services/": {
       "filePath": "services/index.tsx"
-    },
-    "/demo/start/api-request": {
-      "filePath": "demo.start.api-request.tsx"
-    },
-    "/demo/start/server-funcs": {
-      "filePath": "demo.start.server-funcs.tsx"
-    },
-    "/example/guitars/$guitarId": {
-      "filePath": "example.guitars/$guitarId.tsx"
-    },
-    "/example/guitars/": {
-      "filePath": "example.guitars/index.tsx"
     }
   }
 }

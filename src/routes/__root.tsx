@@ -5,8 +5,8 @@ import {
   createRootRoute,
 } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
-
-import Header from '../components/Header'
+import { Header } from '../components/Header'
+import { Footer } from '../components/Footer'
 
 import appCss from '../styles.css?url'
 
@@ -300,9 +300,14 @@ export const Route = createRootRoute({
 
   component: () => (
     <RootDocument>
-      {/* <Header /> */}
-      <Outlet />
-      <TanStackRouterDevtools />
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <div className="flex-1">
+          <Outlet />
+        </div>
+        <Footer />
+        <TanStackRouterDevtools />
+      </div>
     </RootDocument>
   ),
 })

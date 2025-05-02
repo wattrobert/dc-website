@@ -13,6 +13,8 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as BookConsultationImport } from './routes/book-consultation'
 import { Route as IndexImport } from './routes/index'
+import { Route as ServicesIndexImport } from './routes/services/index'
+import { Route as ServicesServiceIdImport } from './routes/services/$serviceId'
 import { Route as ExampleChatImport } from './routes/example.chat'
 import { Route as DemoStoreImport } from './routes/demo.store'
 import { Route as ExampleGuitarsIndexImport } from './routes/example.guitars/index'
@@ -31,6 +33,18 @@ const BookConsultationRoute = BookConsultationImport.update({
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ServicesIndexRoute = ServicesIndexImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ServicesServiceIdRoute = ServicesServiceIdImport.update({
+  id: '/services/$serviceId',
+  path: '/services/$serviceId',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -102,6 +116,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ExampleChatImport
       parentRoute: typeof rootRoute
     }
+    '/services/$serviceId': {
+      id: '/services/$serviceId'
+      path: '/services/$serviceId'
+      fullPath: '/services/$serviceId'
+      preLoaderRoute: typeof ServicesServiceIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesIndexImport
+      parentRoute: typeof rootRoute
+    }
     '/demo/start/api-request': {
       id: '/demo/start/api-request'
       path: '/demo/start/api-request'
@@ -140,6 +168,8 @@ export interface FileRoutesByFullPath {
   '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
+  '/services': typeof ServicesIndexRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
@@ -151,6 +181,8 @@ export interface FileRoutesByTo {
   '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
+  '/services': typeof ServicesIndexRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
@@ -163,6 +195,8 @@ export interface FileRoutesById {
   '/book-consultation': typeof BookConsultationRoute
   '/demo/store': typeof DemoStoreRoute
   '/example/chat': typeof ExampleChatRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
+  '/services/': typeof ServicesIndexRoute
   '/demo/start/api-request': typeof DemoStartApiRequestRoute
   '/demo/start/server-funcs': typeof DemoStartServerFuncsRoute
   '/example/guitars/$guitarId': typeof ExampleGuitarsGuitarIdRoute
@@ -176,6 +210,8 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
+    | '/services/$serviceId'
+    | '/services'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/example/guitars/$guitarId'
@@ -186,6 +222,8 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
+    | '/services/$serviceId'
+    | '/services'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/example/guitars/$guitarId'
@@ -196,6 +234,8 @@ export interface FileRouteTypes {
     | '/book-consultation'
     | '/demo/store'
     | '/example/chat'
+    | '/services/$serviceId'
+    | '/services/'
     | '/demo/start/api-request'
     | '/demo/start/server-funcs'
     | '/example/guitars/$guitarId'
@@ -208,6 +248,8 @@ export interface RootRouteChildren {
   BookConsultationRoute: typeof BookConsultationRoute
   DemoStoreRoute: typeof DemoStoreRoute
   ExampleChatRoute: typeof ExampleChatRoute
+  ServicesServiceIdRoute: typeof ServicesServiceIdRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
   DemoStartApiRequestRoute: typeof DemoStartApiRequestRoute
   DemoStartServerFuncsRoute: typeof DemoStartServerFuncsRoute
   ExampleGuitarsGuitarIdRoute: typeof ExampleGuitarsGuitarIdRoute
@@ -219,6 +261,8 @@ const rootRouteChildren: RootRouteChildren = {
   BookConsultationRoute: BookConsultationRoute,
   DemoStoreRoute: DemoStoreRoute,
   ExampleChatRoute: ExampleChatRoute,
+  ServicesServiceIdRoute: ServicesServiceIdRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
   DemoStartApiRequestRoute: DemoStartApiRequestRoute,
   DemoStartServerFuncsRoute: DemoStartServerFuncsRoute,
   ExampleGuitarsGuitarIdRoute: ExampleGuitarsGuitarIdRoute,
@@ -239,6 +283,8 @@ export const routeTree = rootRoute
         "/book-consultation",
         "/demo/store",
         "/example/chat",
+        "/services/$serviceId",
+        "/services/",
         "/demo/start/api-request",
         "/demo/start/server-funcs",
         "/example/guitars/$guitarId",
@@ -256,6 +302,12 @@ export const routeTree = rootRoute
     },
     "/example/chat": {
       "filePath": "example.chat.tsx"
+    },
+    "/services/$serviceId": {
+      "filePath": "services/$serviceId.tsx"
+    },
+    "/services/": {
+      "filePath": "services/index.tsx"
     },
     "/demo/start/api-request": {
       "filePath": "demo.start.api-request.tsx"
